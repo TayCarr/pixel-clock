@@ -2,15 +2,37 @@
 
 import Clock from './components/Clock';
 import './App.css'
+import { useState } from 'react';
 
 function App() { //define react component, this function returns UI
+
+  
+  const cities = [
+    {label: "Adelaide", timeZone: "Australia/Adelaide", city: "Adelaide" },
+    {label: "London", timeZone: "Europe/London", city: "London" },
+    {label: "Tokyo", timeZone: "Asia/Tokyo", city: "Tokyo" },
+    {label: "Sydney", timeZone: "Australia/Sydney", city: "Sydney" },
+  ];
+  const [selectedCity, setSelectedCity] = useState(cities[0]); //store current city, default is first in list
 
   return (
     <div>
       <h1>Pixel Clock</h1>
-      <Clock label="Adelaide" timeZone="Australia/Adelaide" city="Adelaide"/>
-      
-      <Clock label="Tokyo" timeZone="Asia/Tokyo" city="Tokyo" />
+      <select 
+        value = {setSelectedCity.city}
+        onChange={(e) => {
+          const city = cities.find(c => c.city === e.target.value);
+          if (city) setSelectedCity(city);
+        }}
+      >
+        {cities.map((c) => (
+          <option key={c.city} value={c.city}>
+            {c.label}
+          </option>
+        ))}
+
+      </select>
+      <Clock timeZone={selectedCity.timeZone} city={selectedCity.city} />
     </div>  
     
   );
