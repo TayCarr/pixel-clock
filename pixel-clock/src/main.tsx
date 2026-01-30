@@ -6,7 +6,10 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+//entry point of app
+ReactDOM.createRoot(//create react root and render <App> in it
+  document.getElementById('root')!//tells typescript i know this element exists
+  ).render(
   <StrictMode>
     <App />
   </StrictMode>,
