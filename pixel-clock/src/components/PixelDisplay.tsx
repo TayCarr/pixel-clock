@@ -1,28 +1,60 @@
-import { useEffect, useRef } from "react";
+import { useMemo } from "react";
+import '../style/pixel.css'
+
+import spring from '../assets/flowers/daisy.PNG';
+import summer from '../assets/flowers/poppy.PNG';
+import fall from '../assets/flowers/iris.PNG';
+import winter from '../assets/flowers/snowdrop.PNG';
+
+//TODO weather animation imports
+
+const flowerSeason = {
+    spring,
+    summer,
+    fall,
+    winter,
+} as const;
+
+//TODO for weather overlay, from openweathermap
+const weatherOverlay = {
+    Clear: undefined,
+    Rain: undefined,
+    Snow: undefined,
+    Clouds: undefined
+}as const;
 
 interface PixelDisplayProps{
-    condition: string;
+    condition: string; //rainy snowing etc var
+    isDay: boolean; //AM/PM switch
+    date?: Date;
 }
 
-function PixelDisplay({condition}: PixelDisplayProps){
-    //stores a reference to a DOM element
-    const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-    useEffect(() => {
-        const canvas = canvasRef.current;
-        if(!canvas) return;
+function getSeason(date: Date): "spring" | "summer" | "fall" | "winter" {
+    const month = date.getMonth(); //0-11 
+    if (month < 2 || month === 11) return "winter";
+    if (month < 5) return "spring";
+    if (month < 8) return "summer";
+    return "fall";
+}
 
-        //get drawing context, everything drawn goes through this object
-        const ctx = canvas.getContext("2d");
-        if(!ctx) return;
+function PixelDisplay({condition, isDay, date = new Date()}: PixelDisplayProps){
+    
+    const season = useMemo(() => getSeason(date), [date]);
 
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const flower = flowerSeason[season];
+    const overlay = weatherOverlay[condition as keyof typeof weatherOverlay];
+    
+    return(
+        <div className={`scene ${isDay ? "" : "night"}`}>
+            <img src={flower} className="pixel-sprite"/>
 
-        ctx.fillStyle = condition === "Clear" ? "yellow" : "gray";
-        ctx.fillRect(20, 20, 24, 24);//(x,y,width,height), draws a rectangle, canvas is a pixel grid
-    }, [condition]);
+            {overlay && (
+                <img src={overlay} className="pixel-sprite overlay"/>
+            )}
 
-    return <canvas ref={canvasRef} width={64} height={64} />;
+        </div>
+    );
 }
 
 export default PixelDisplay;

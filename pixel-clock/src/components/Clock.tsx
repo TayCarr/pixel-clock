@@ -14,17 +14,30 @@ interface ClockProps{
 function Clock({label, timeZone, city}: ClockProps){
     const [time, setTime] = useState(""); //react state, time holds formatted string, settime updates and triggers rerender
     const [weather, setWeather] = useState<WeatherData | null>(null);
+    const [isDay, setIsDay] = useState(true);
 
     useEffect(() => {
         const updateTime = () => { //date() gets current time
-            const formatted = new Date().toLocaleTimeString("en-US", {
+            const now = new Date();
+
+            const formatted = now.toLocaleTimeString("en-US", {
                 timeZone,//update to other timezone
                 hour: "numeric",
                 minute: "2-digit",
                 second: "2-digit",
                 hour12: true,
             });//no api browser native
+
+            const hour24 = Number(
+                now.toLocaleString("en-US", {
+                    timeZone,
+                    hour: "numeric",
+                    hour12: false,
+                })
+            );
+            
             setTime(formatted);
+            setIsDay(hour24 >= 6 && hour24 < 18);
         };
 
         updateTime();
@@ -49,7 +62,7 @@ function Clock({label, timeZone, city}: ClockProps){
                         {Math.round(weather.main.temp)}°C -{" "}
                         {weather.weather[0].main}
                     </p>
-                    <PixelDisplay condition={weather.weather[0].main} />
+                    <PixelDisplay condition={weather.weather[0].main} isDay={isDay} />
                 </>
             )}
         </div>

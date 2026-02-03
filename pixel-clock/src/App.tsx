@@ -4,6 +4,8 @@ import Clock from './components/Clock';
 import './App.css'
 import { useState } from 'react';
 
+
+
 function App() { //define react component, this function returns UI
 
   
@@ -15,9 +17,9 @@ function App() { //define react component, this function returns UI
   ];
   const [selectedCity, setSelectedCity] = useState(cities[0]); //store current city, default is first in list
 
+  //TODO style for dropdown, clock, weather text
   return (
     <div>
-      <h1>Pixel Clock</h1>
       <select 
         value = {setSelectedCity.city}
         onChange={(e) => {
@@ -39,3 +41,4 @@ function App() { //define react component, this function returns UI
 }
 
 export default App //export so that main.tsx can render
+
