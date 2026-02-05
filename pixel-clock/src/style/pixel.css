@@ -4,6 +4,25 @@
     width: 96px;
     height: 96px;*/
   }
+  .pixel-condition{
+    image-rendering: pixelated;
+    max-width: 180%;
+    transform: translate(25%, 3%);
+    margin-top: 10%;
+     
+    
+    /*
+    max-width: 200%;
+    max-height: 40%;
+    transform: translate(105%, 40%), scale(1.9);
+    */
+    z-index: -2;
+  }
+  .pixel-condition img {
+    /* Adjust these values to position the desired part of the image */
+     
+    margin-left: -300px;
+}
   
   .pixel-sprite {
     /*width: 96px;
@@ -11,7 +30,7 @@
     
     */
     max-width: 40%;
-    transform: translate(380%, 180%);
+    transform: translate(380%, 190%);
     z-index: -1;
     image-rendering: pixelated;
   }
