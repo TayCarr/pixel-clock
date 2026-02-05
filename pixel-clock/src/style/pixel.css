@@ -1,13 +1,35 @@
 /*TODO all of this is very basic stuff */
 .scene {
-    position: relative;
+    /*position: relative;
     width: 96px;
-    height: 96px;
+    height: 96px;*/
   }
   
   .pixel-sprite {
-    width: 96px;
+    /*width: 96px;
     height: 96px;
+    
+    */
+    max-width: 40%;
+    transform: translate(380%, 180%);
+    z-index: -1;
+    image-rendering: pixelated;
+  }
+
+  .window-scene-container{
+    display: grid;
+    
+  }
+  .window-scene-container img {
+    /* Place all images in the same row and column (e.g., the first one) */
+    grid-area: 1 / 1 / 2 / 2; /* Shorthand for grid-row-start / grid-column-start / grid-row-end / grid-column-end */
+     /* Optional: make images fill the grid cell */
+  }
+
+  .pixel-window{
+    /*TODO fix the sizing !!!*/
+    /* */
+    max-width: 250%;
     image-rendering: pixelated;
   }
   

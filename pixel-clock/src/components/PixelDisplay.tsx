@@ -6,6 +6,8 @@ import summer from '../assets/flowers/poppy.PNG';
 import fall from '../assets/flowers/iris.PNG';
 import winter from '../assets/flowers/snowdrop.PNG';
 
+import windowPixel from '../assets/window.png'
+
 //TODO weather animation imports
 
 const flowerSeason = {
@@ -32,6 +34,13 @@ interface PixelDisplayProps{
 
 function getSeason(date: Date): "spring" | "summer" | "fall" | "winter" {
     const month = date.getMonth(); //0-11 
+    //for testing
+    //console.log(month);
+    //if (month === 1) return "winter";
+    //if (month === 1) return "spring";
+    //if (month === 1) return "summer";
+    //if (month === 1) return "fall";
+
     if (month < 2 || month === 11) return "winter";
     if (month < 5) return "spring";
     if (month < 8) return "summer";
@@ -43,16 +52,26 @@ function PixelDisplay({condition, isDay, date = new Date()}: PixelDisplayProps){
     const season = useMemo(() => getSeason(date), [date]);
 
     const flower = flowerSeason[season];
+    //console.log(season);
     const overlay = weatherOverlay[condition as keyof typeof weatherOverlay];
     
     return(
+        <div>
+        <div className="window-scene-container">
+        <img src={windowPixel} className="pixel-window"/>
+        <img src={flower} className="pixel-sprite"/>
+        </div>
+
         <div className={`scene ${isDay ? "" : "night"}`}>
-            <img src={flower} className="pixel-sprite"/>
+            
+            
 
             {overlay && (
                 <img src={overlay} className="pixel-sprite overlay"/>
             )}
 
+        
+        </div>
         </div>
     );
 }
