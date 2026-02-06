@@ -10,11 +10,16 @@ import windowPixel from '../assets/window.png'
 
 import Clear from '../assets/conditions/sun.gif'
 import Clouds from '../assets/conditions/clouds.gif'
+import Rain from '../assets/conditions/Raintest1.gif'
+import Drizzle from '../assets/conditions/Raintest1.gif'
+
 
 //TODO weather animation imports
 const weatherCondition = {
     Clouds,
     Clear,
+    Rain,
+    Drizzle,
 } as const;
 
 const flowerSeason = {
@@ -68,6 +73,9 @@ function PixelDisplay({condition, isDay, date = new Date()}: PixelDisplayProps){
         <div>
         <div className="window-scene-container">
         <img src={windowPixel} className="pixel-window"/>
+        {/*<img src={displayCondition} className="pixel-condition"/>
+        <img src={Rain} className="pixel-condition"/>
+        */}
         <img src={displayCondition} className="pixel-condition"/>
         <img src={flower} className="pixel-sprite"/>
         </div>
