@@ -16,6 +16,7 @@ function App() { //define react component, this function returns UI
     {label: "Tokyo", timeZone: "Asia/Tokyo", city: "Tokyo" },
     {label: "Sydney", timeZone: "Australia/Sydney", city: "Sydney" },
     {label: "Warsaw", timeZone: "Europe/Warsaw", city: "Warsaw" },
+    {label: "Hong Kong", timeZone: "Asia/Hong_Kong", city: "Hong Kong" },
     
   ];
   const [selectedCity, setSelectedCity] = useState(cities[0]); //store current city, default is first in list

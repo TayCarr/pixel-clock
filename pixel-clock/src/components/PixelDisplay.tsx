@@ -8,10 +8,14 @@ import winter from '../assets/flowers/snowdrop.PNG';
 
 import windowPixel from '../assets/window.png'
 
-import sun from '../assets/conditions/sun.gif'
-import clouds from '../assets/conditions/clouds.gif'
+import Clear from '../assets/conditions/sun.gif'
+import Clouds from '../assets/conditions/clouds.gif'
 
 //TODO weather animation imports
+const weatherCondition = {
+    Clouds,
+    Clear,
+} as const;
 
 const flowerSeason = {
     spring,
@@ -57,12 +61,14 @@ function PixelDisplay({condition, isDay, date = new Date()}: PixelDisplayProps){
     const flower = flowerSeason[season];
     //console.log(season);
     const overlay = weatherOverlay[condition as keyof typeof weatherOverlay];
+    console.log(condition);
+    const displayCondition = weatherCondition[condition];
     
     return(
         <div>
         <div className="window-scene-container">
         <img src={windowPixel} className="pixel-window"/>
-        <img src={clouds} className="pixel-condition"/>
+        <img src={displayCondition} className="pixel-condition"/>
         <img src={flower} className="pixel-sprite"/>
         </div>
 
