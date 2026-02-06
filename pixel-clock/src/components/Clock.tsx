@@ -60,7 +60,9 @@ function Clock({label, timeZone, city}: ClockProps){
                 <>
                     <p>
                         {Math.round(weather.main.temp)}°C -{" "}
-                        {weather.weather[0].main}
+                        {weather.weather[0].main}-{" "} {/*condition returns: Thunderstorm, Drizzle, Rain, Snow, Clear, Clouds */}
+                        {weather.weather[0].description}
+                        {/*{weather.weather[0].icon}*/}
                     </p>
                     <PixelDisplay condition={weather.weather[0].main} isDay={isDay} />
                 </>

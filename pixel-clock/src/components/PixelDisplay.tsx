@@ -9,6 +9,7 @@ import winter from '../assets/flowers/snowdrop.PNG';
 import windowPixel from '../assets/window.png'
 
 import sun from '../assets/conditions/sun.gif'
+import clouds from '../assets/conditions/clouds.gif'
 
 //TODO weather animation imports
 
@@ -61,7 +62,7 @@ function PixelDisplay({condition, isDay, date = new Date()}: PixelDisplayProps){
         <div>
         <div className="window-scene-container">
         <img src={windowPixel} className="pixel-window"/>
-        <img src={sun} className="pixel-condition"/>
+        <img src={clouds} className="pixel-condition"/>
         <img src={flower} className="pixel-sprite"/>
         </div>
 
