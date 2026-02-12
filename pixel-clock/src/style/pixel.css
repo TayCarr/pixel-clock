@@ -62,8 +62,8 @@
   top: 50%;
   right: -500px;      /* distance from right edge */
   transform: translateY(-50%);
-
   text-align: right;
+  
   color: beige;
   font-weight: bold;
 
@@ -73,36 +73,7 @@
     0 2px black,
     0 -2px black;
 }
-/* TIME (top center) */
-.time-text {
-  position: absolute;
-  top: 15%;
-  left: 100%;
-  transform: translate(-50%, -50%);
-  color: beige;
-  font-weight: bold;
-  text-shadow:
-    2px 0 black,
-    -2px 0 black,
-    0 2px black,
-    0 -2px black;
-}
 
-/* WEATHER (bottom center) */
-.weather-text {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  color: beige;
-  font-weight: bold;
-  text-align: center;
-  text-shadow:
-    2px 0 black,
-    -2px 0 black,
-    0 2px black,
-    0 -2px black;
-}
 
 .text{
   text-align: right;
