@@ -24,7 +24,7 @@ function Clock({label, timeZone, city}: ClockProps){
                 timeZone,//update to other timezone
                 hour: "numeric",
                 minute: "2-digit",
-                second: "2-digit",
+                //second: "2-digit",
                 hour12: true,
             });//no api browser native
 
@@ -54,17 +54,22 @@ function Clock({label, timeZone, city}: ClockProps){
     return(
         <div style={{marginBottom: "2rem"}}>
             <h2>{label}</h2>
-            <p style={{fontSize: "1.5rem"}}>{time}</p>
 
             {weather &&(
                 <>
-                    <p>
+                    <div className = 'scene-container'>
+                    <PixelDisplay condition={weather.weather[0].main} isDay={isDay} />
+                    <div className = 'text-container'>
+                    <p className = 'time-text' style={{fontSize: "1.5rem"}}>{time}</p>
+                    <p className = 'weather-text'>
                         {Math.round(weather.main.temp)}°C -{" "}
-                        {weather.weather[0].main}-{" "} {/*condition returns: Thunderstorm, Drizzle, Rain, Snow, Clear, Clouds */}
+                         {/* {weather.weather[0].main}-{" "}  condition returns: Thunderstorm, Drizzle, Rain, Snow, Clear, Clouds */}
                         {weather.weather[0].description}
                         {/*{weather.weather[0].icon}*/}
                     </p>
-                    <PixelDisplay condition={weather.weather[0].main} isDay={isDay} />
+                    </div>
+                    </div>
+                    
                 </>
             )}
         </div>
