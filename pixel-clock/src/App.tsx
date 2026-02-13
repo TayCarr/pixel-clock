@@ -25,6 +25,7 @@ function App() { //define react component, this function returns UI
   //TODO style for dropdown, clock, weather text
   return (
     <div>
+      <ul>
       <select 
         value = {setSelectedCity.city}
         onChange={(e) => {
@@ -39,6 +40,7 @@ function App() { //define react component, this function returns UI
         ))}
 
       </select>
+      </ul>
       <Clock timeZone={selectedCity.timeZone} city={selectedCity.city} />
     </div>  
     
