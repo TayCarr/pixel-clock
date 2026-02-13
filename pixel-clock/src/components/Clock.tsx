@@ -2,6 +2,8 @@ import {useEffect, useState} from "react";
 import {getWeather} from "../services/weatherService";
 import type {WeatherData} from "../types/weather";///remove type???
 
+import '../style/pixel.css'
+
 import PixelDisplay from "./PixelDisplay";
 //time logic of app
 

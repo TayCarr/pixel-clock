@@ -42,6 +42,12 @@ ul select {
   }
 }
 
+@media (max-width: 1000px) {
+  ul {
+    width: 100%;
+  }
+}
+
 
 
 
