@@ -14,7 +14,7 @@ import Rain from '../assets/conditions/Raintest1.gif'
 import Drizzle from '../assets/conditions/Raintest1.gif'
 import Thunderstorm from '../assets/conditions/Thundertest.gif'
 import Snow from '../assets/conditions/Snow.gif'
-import Mist from '../assets/conditions/Mist.gif'
+import Mist from '../assets/conditions/Mist2.gif'
 
 
 //TODO weather animation imports
