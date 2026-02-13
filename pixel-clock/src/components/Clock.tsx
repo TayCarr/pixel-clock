@@ -52,7 +52,7 @@ function Clock({label, timeZone, city}: ClockProps){
     }, [city]);
 
     return(
-        <div style={{marginBottom: "2rem"}}>
+        <div style={{marginBottom: "1rem"}}>
             <h2>{label}</h2>
 
             {weather &&(
@@ -60,7 +60,7 @@ function Clock({label, timeZone, city}: ClockProps){
                     <div className = 'scene-container'>
                     <PixelDisplay condition={weather.weather[0].main} isDay={isDay} />
                     <div className = 'text-container'>
-                    <p className = 'time-text' style={{fontSize: "1.5rem"}}>{time}</p>
+                    <p className = 'time-text' style={{fontSize: "1rem"}}>{time}</p>
                     <p className = 'weather-text'>
                         {Math.round(weather.main.temp)}°C -{" "}
                          {/* {weather.weather[0].main}-{" "}  condition returns: Thunderstorm, Drizzle, Rain, Snow, Clear, Clouds */}
