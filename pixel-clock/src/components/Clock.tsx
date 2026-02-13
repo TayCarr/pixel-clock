@@ -52,8 +52,7 @@ function Clock({label, timeZone, city}: ClockProps){
     }, [city]);
 
     return(
-        <div style={{marginBottom: "1rem"}}>
-            <h2>{label}</h2>
+        <div style={{marginBottom: "7rem"}}>
 
             {weather &&(
                 <>

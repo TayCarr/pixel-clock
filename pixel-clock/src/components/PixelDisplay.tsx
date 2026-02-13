@@ -14,6 +14,7 @@ import Rain from '../assets/conditions/Raintest1.gif'
 import Drizzle from '../assets/conditions/Raintest1.gif'
 import Thunderstorm from '../assets/conditions/Thundertest.gif'
 import Snow from '../assets/conditions/Snow.gif'
+import Mist from '../assets/conditions/Mist.gif'
 
 
 //TODO weather animation imports
@@ -24,6 +25,7 @@ const weatherCondition = {
     Drizzle,
     Thunderstorm,
     Snow,
+    Mist,
 } as const;
 
 const flowerSeason = {
