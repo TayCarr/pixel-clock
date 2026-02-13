@@ -53,13 +53,14 @@ function Clock({label, timeZone, city}: ClockProps){
 
     return(
         <div style={{marginBottom: "7rem"}}>
+            
 
             {weather &&(
                 <>
                     <div className = 'scene-container'>
                     <PixelDisplay condition={weather.weather[0].main} isDay={isDay} />
                     <div className = 'text-container'>
-                        <p className = 'city-text' style={{fontSize: "1rem"}}>{city}</p>
+                        <p className = 'city-text' style={{fontSize: "1rem"}}>{label}</p>
                         <p className = 'time-text' style={{fontSize: "1rem"}}>{time}</p>
                         <p className = 'weather-text'>
                             {Math.round(weather.main.temp)}°C -{" "}

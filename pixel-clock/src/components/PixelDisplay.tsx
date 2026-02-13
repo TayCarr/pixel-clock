@@ -73,7 +73,7 @@ function PixelDisplay({condition, isDay, date = new Date()}: PixelDisplayProps){
     //console.log(season);
     const overlay = weatherOverlay[condition as keyof typeof weatherOverlay];
     console.log(condition);
-    const displayCondition = weatherCondition[condition];
+    const displayCondition = weatherCondition[condition as keyof typeof weatherCondition];
     
     return(
         <div>

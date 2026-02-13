@@ -27,7 +27,7 @@ function App() { //define react component, this function returns UI
     <div>
       <ul>
       <select 
-        value = {setSelectedCity.city}
+        value = {selectedCity.city}
         onChange={(e) => {
           const city = cities.find(c => c.city === e.target.value);
           if (city) setSelectedCity(city);
@@ -41,7 +41,7 @@ function App() { //define react component, this function returns UI
 
       </select>
       </ul>
-      <Clock timeZone={selectedCity.timeZone} city={selectedCity.city} />
+      <Clock label={selectedCity.label} timeZone={selectedCity.timeZone} city={selectedCity.city} />
     </div>  
     
   );
