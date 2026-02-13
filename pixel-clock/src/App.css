@@ -30,6 +30,18 @@ ul select {
   background-color: #87938b;
 }*/
 
+@media (prefers-color-scheme: light) {
+  ul {
+    
+    /*background-color: #76867c;*/
+  }
+  
+  ul select {
+    color: rgb(53, 51, 51);
+    /*background-color: #76867c;*/
+  }
+}
+
 
 
 
